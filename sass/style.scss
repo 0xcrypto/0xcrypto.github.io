@@ -1,0 +1,176 @@
+$bg: #0d1117;
+$surface: #161b22;
+$border: #30363d;
+$text: #e6edf3;
+$text-muted: #8b949e;
+$accent: #58a6ff;
+$green: #3fb950;
+$purple: #bc8cff;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: $bg;
+  color: $text;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-bottom: 1px solid $border;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 1.1rem;
+  }
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.sort-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+
+  button {
+    background: $surface;
+    border: 1px solid $border;
+    color: $text-muted;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: $accent;
+      color: $text;
+    }
+
+    &.active {
+      background: $accent;
+      border-color: $accent;
+      color: $bg;
+      font-weight: 600;
+    }
+  }
+}
+
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+.repo-card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    border-color: $accent;
+    transform: translateY(-2px);
+  }
+}
+
+.repo-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  svg {
+    flex-shrink: 0;
+    color: $text-muted;
+  }
+}
+
+.repo-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $accent;
+  word-break: break-all;
+}
+
+.repo-card__desc {
+  color: $text-muted;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.repo-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: $text-muted;
+  flex-wrap: wrap;
+}
+
+.repo-card__stat {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.repo-card__lang {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  .lang-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: $text-muted;
+  font-size: 0.85rem;
+  border-top: 1px solid $border;
+  margin-top: 2rem;
+}
+
+@media (max-width: 400px) {
+  .repos-grid {
+    grid-template-columns: 1fr;
+  }
+}

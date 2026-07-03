@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+</head>
+<body>
+  {% block content %}{% endblock %}
+  <footer>
+    Powered by <a href="https://www.getzola.org" style="color: var(--accent);">Zola</a> &amp;
+    <a href="https://github.com/0xcrypto" style="color: var(--accent);">GitHub</a>
+  </footer>
+</body>
+</html>

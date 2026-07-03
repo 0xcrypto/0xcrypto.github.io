@@ -1,0 +1,10 @@
+base_url = "https://0xcrypto.github.io"
+title = "0xcrypto"
+description = "Open source projects by 0xcrypto"
+compile_sass = true
+build_search_index = false
+
+[markdown]
+
+[extra]
+github_username = "0xcrypto"
