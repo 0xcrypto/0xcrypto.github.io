@@ -1,0 +1,209 @@
+[
+  {
+    "description": null,
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/0xcrypto-rickroll",
+    "language": "HTML",
+    "name": "0xcrypto-rickroll",
+    "stargazers_count": 0,
+    "updated_at": "2023-07-30T10:03:28Z"
+  },
+  {
+    "description": null,
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/0xcrypto.github.io",
+    "language": "HTML",
+    "name": "0xcrypto.github.io",
+    "stargazers_count": 0,
+    "updated_at": "2026-07-03T20:02:27Z"
+  },
+  {
+    "description": null,
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/applesec",
+    "language": "Python",
+    "name": "applesec",
+    "stargazers_count": 1,
+    "updated_at": "2026-06-28T02:42:36Z"
+  },
+  {
+    "description": "Case studies done on breaches",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/breaches",
+    "language": null,
+    "name": "breaches",
+    "stargazers_count": 0,
+    "updated_at": "2023-09-01T05:24:38Z"
+  },
+  {
+    "description": null,
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/exploits",
+    "language": "PHP",
+    "name": "exploits",
+    "stargazers_count": 0,
+    "updated_at": "2025-11-01T09:55:17Z"
+  },
+  {
+    "description": "Google Dorks collected through different sources",
+    "forks_count": 3,
+    "html_url": "https://github.com/0xcrypto/google-dorks",
+    "language": null,
+    "name": "google-dorks",
+    "stargazers_count": 2,
+    "updated_at": "2025-01-04T17:35:13Z"
+  },
+  {
+    "description": null,
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/hackberry-github",
+    "language": "SCSS",
+    "name": "hackberry-github",
+    "stargazers_count": 0,
+    "updated_at": "2026-01-23T06:36:39Z"
+  },
+  {
+    "description": "Hackberry OS - A minimalistic operating system (Under Development)",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/hackberry-os",
+    "language": null,
+    "name": "hackberry-os",
+    "stargazers_count": 1,
+    "updated_at": "2025-05-13T07:01:10Z"
+  },
+  {
+    "description": "Ask a question, get an answer—right in your terminal.",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/hey",
+    "language": "Python",
+    "name": "hey",
+    "stargazers_count": 0,
+    "updated_at": "2025-05-16T07:34:57Z"
+  },
+  {
+    "description": "A wp-cli command and wordpress plugin to list all the shortcodes available.",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/list-shortcodes",
+    "language": "PHP",
+    "name": "list-shortcodes",
+    "stargazers_count": 2,
+    "updated_at": "2024-12-20T03:15:04Z"
+  },
+  {
+    "description": "A deobfuscator for mutant language",
+    "forks_count": 1,
+    "html_url": "https://github.com/0xcrypto/mutant-cure",
+    "language": "Go",
+    "name": "mutant-cure",
+    "stargazers_count": 4,
+    "updated_at": "2024-12-20T03:16:19Z"
+  },
+  {
+    "description": "[Discontinued] No more WordPress... ",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/noko",
+    "language": "CSS",
+    "name": "noko",
+    "stargazers_count": 0,
+    "updated_at": "2023-11-19T14:03:02Z"
+  },
+  {
+    "description": "okai - a wannabe ai bot. For now, you can use it as a script engine or a butler",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/ok",
+    "language": "Python",
+    "name": "ok",
+    "stargazers_count": 0,
+    "updated_at": "2024-01-04T15:52:38Z"
+  },
+  {
+    "description": "A Digital Signature based authentication system to provide a password less user-login experience.",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/password-less",
+    "language": null,
+    "name": "password-less",
+    "stargazers_count": 0,
+    "updated_at": "2026-07-03T18:58:45Z"
+  },
+  {
+    "description": "Generating some visual patterns and designs",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/patterns",
+    "language": "JavaScript",
+    "name": "patterns",
+    "stargazers_count": 0,
+    "updated_at": "2020-01-11T13:24:29Z"
+  },
+  {
+    "description": "Library of resources to learn about programming and hacking.",
+    "forks_count": 1,
+    "html_url": "https://github.com/0xcrypto/programmers-and-hackers",
+    "language": null,
+    "name": "programmers-and-hackers",
+    "stargazers_count": 0,
+    "updated_at": "2024-08-12T19:33:17Z"
+  },
+  {
+    "description": "Public OSINT data",
+    "forks_count": 15,
+    "html_url": "https://github.com/0xcrypto/purge",
+    "language": null,
+    "name": "purge",
+    "stargazers_count": 32,
+    "updated_at": "2025-12-09T13:44:04Z"
+  },
+  {
+    "description": "Learning resources for myself and others.",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/resources",
+    "language": null,
+    "name": "resources",
+    "stargazers_count": 0,
+    "updated_at": "2023-08-29T04:43:30Z"
+  },
+  {
+    "description": "Simple Framework for PHP.",
+    "forks_count": 0,
+    "html_url": "https://github.com/0xcrypto/simple",
+    "language": "PHP",
+    "name": "simple",
+    "stargazers_count": 0,
+    "updated_at": "2023-01-27T23:48:38Z"
+  },
+  {
+    "description": "A script to test for subdomain takeovers from a list of domains",
+    "forks_count": 1,
+    "html_url": "https://github.com/0xcrypto/takeover",
+    "language": "Python",
+    "name": "takeover",
+    "stargazers_count": 12,
+    "updated_at": "2025-06-04T04:31:19Z"
+  },
+  {
+    "description": "Detects technologies of a web page using Wappalyzer in a headless browser. ",
+    "forks_count": 1,
+    "html_url": "https://github.com/0xcrypto/webdetect",
+    "language": "Python",
+    "name": "webdetect",
+    "stargazers_count": 1,
+    "updated_at": "2023-06-13T17:09:13Z"
+  },
+  {
+    "description": "Automagically generated wordlists",
+    "forks_count": 3,
+    "html_url": "https://github.com/0xcrypto/whack",
+    "language": "Makefile",
+    "name": "whack",
+    "stargazers_count": 7,
+    "updated_at": "2025-06-29T14:03:30Z"
+  },
+  {
+    "description": "Just a backup of wordlists I use. Major wordlists are added as submodules.",
+    "forks_count": 1,
+    "html_url": "https://github.com/0xcrypto/wordlists",
+    "language": null,
+    "name": "wordlists",
+    "stargazers_count": 1,
+    "updated_at": "2023-05-22T07:54:45Z"
+  }
+]
