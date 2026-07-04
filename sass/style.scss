@@ -26,6 +26,14 @@ header {
   padding: 3rem 1rem 2rem;
   border-bottom: 1px solid $border;
 
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid $border;
+    margin-bottom: 1rem;
+  }
+
   h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -35,6 +43,42 @@ header {
   p {
     color: $text-muted;
     font-size: 1.1rem;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+
+    a {
+      color: $text-muted;
+      display: inline-flex;
+      transition: color 0.2s, transform 0.2s;
+
+      &:hover {
+        color: $accent;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.section {
+  margin-bottom: 3rem;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $border;
+  }
+
+  &__subtitle {
+    color: $text-muted;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -157,6 +201,57 @@ main {
     height: 10px;
     border-radius: 50%;
     display: inline-block;
+  }
+}
+
+.contrib-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contrib-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: $accent;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    color: $purple;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__title {
+    color: $accent;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__repo {
+    color: $text-muted;
+    font-size: 0.8rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   }
 }
 

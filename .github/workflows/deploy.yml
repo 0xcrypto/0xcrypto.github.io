@@ -24,14 +24,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch public repos
+      - name: Fetch personal projects
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api "/users/${GITHUB_REPOSITORY_OWNER}/repos?per_page=100&type=public" --paginate \
-            --jq '.[] | select(.fork == false) | {name, description, html_url, stargazers_count, forks_count, language, updated_at}' \
+            --jq '.[] | select(.fork == false and .stargazers_count > 0) | {name, description, html_url, stargazers_count, forks_count, language, updated_at}' \
             | jq -s '.' > static/repos.json
-          echo "Fetched $(jq length static/repos.json) repos"
+          echo "Fetched $(jq length static/repos.json) personal projects"
+
+      - name: Fetch merged contributions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          owner_lc="$(echo "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
+          gh api -X GET search/issues --paginate \
+            -f q="type:pr is:merged author:${GITHUB_REPOSITORY_OWNER}" \
+            --jq ".items[]
+                  | select(.pull_request != null)
+                  | select((.repository_url | ascii_downcase | test(\"/repos/${owner_lc}/\")) | not)
+                  | {title, html_url, repo: (.repository_url | sub(\"https://api.github.com/repos/\"; \"\")), merged_at: .pull_request.merged_at}" \
+            | jq -s 'sort_by(.merged_at) | reverse' > static/contributions.json
+          echo "Fetched $(jq length static/contributions.json) contributions"
 
       - name: Install Zola
         uses: taiki-e/install-action@v2

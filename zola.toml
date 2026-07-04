@@ -8,3 +8,5 @@ build_search_index = false
 
 [extra]
 github_username = "0xcrypto"
+tagline = "This page lists my open source contributions."
+gravatar_hash = "839e873cfec482041c52272615ef3bfc01cdc8bb5a9be701d907af84e855b4df"
