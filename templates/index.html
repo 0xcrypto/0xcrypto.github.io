@@ -9,26 +9,41 @@
        alt="{{ config.extra.github_username }}" width="120" height="120">
   <h1>{{ config.extra.github_username }}</h1>
   <p>{{ config.extra.tagline }}</p>
+  {% if config.extra.social %}
+  {% set social = config.extra.social %}
   <nav class="socials">
-    <a href="https://eval.blog" title="Blog" aria-label="Blog">
+    {% if social.blog %}
+    <a href="{{ social.blog }}" title="Blog" aria-label="Blog">
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M4 3h13a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm2 4v2h9V7H6zm0 4v2h9v-2H6zm0 4v2h6v-2H6z"/></svg>
     </a>
-    <a href="https://github.com/0xcrypto" title="GitHub" aria-label="GitHub">
+    {% endif %}
+    {% if social.github %}
+    <a href="{{ social.github }}" title="GitHub" aria-label="GitHub">
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.64-5.49 5.94.43.37.82 1.1.82 2.22 0 1.61-.02 2.9-.02 3.29 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
     </a>
-    <a href="https://x.com/0xcrypto" title="X" aria-label="X (Twitter)">
+    {% endif %}
+    {% if social.twitter %}
+    <a href="{{ social.twitter }}" title="X" aria-label="X (Twitter)">
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.63 7.58H.49l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3L17.61 20.65z"/></svg>
     </a>
-    <a href="https://www.linkedin.com/in/0xcrypto" title="LinkedIn" aria-label="LinkedIn">
+    {% endif %}
+    {% if social.linkedin %}
+    <a href="{{ social.linkedin }}" title="LinkedIn" aria-label="LinkedIn">
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
     </a>
-    <a href="https://www.youtube.com/@0xcrypto" title="YouTube" aria-label="YouTube">
+    {% endif %}
+    {% if social.youtube %}
+    <a href="{{ social.youtube }}" title="YouTube" aria-label="YouTube">
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
     </a>
-    <a href="https://www.instagram.com/ivxenog" title="Instagram" aria-label="Instagram">
+    {% endif %}
+    {% if social.instagram %}
+    <a href="{{ social.instagram }}" title="Instagram" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
     </a>
+    {% endif %}
   </nav>
+  {% endif %}
 </header>
 <main>
   <section class="section">
@@ -40,7 +55,7 @@
       <button data-sort="name">Sort by Name</button>
     </div>
     <div class="repos-grid" id="repos-grid">
-      {% set repos = load_data(path="static/repos.json", format="json") %}
+      {% set repos = load_data(path="static/repos.json", format="json", required=false) | default(value=[]) %}
       {% for repo in repos %}
       <a href="{{ repo.html_url }}" class="repo-card"
          data-stars="{{ repo.stargazers_count }}"
@@ -71,6 +86,8 @@
           </span>
         </div>
       </a>
+      {% else %}
+      <p class="empty-state">No projects to show yet.</p>
       {% endfor %}
     </div>
   </section>
@@ -78,18 +95,29 @@
   <section class="section">
     <h2 class="section__title">Contributions</h2>
     <p class="section__subtitle">Pull requests merged into other projects.</p>
-    {% set contributions = load_data(path="static/contributions.json", format="json") %}
-    <ul class="contrib-list">
+    {% set contributions = load_data(path="static/contributions.json", format="json", required=false) | default(value=[]) %}
+    <ul class="contrib-list" id="contrib-list">
       {% for pr in contributions %}
       <li class="contrib-item">
         <svg class="contrib-item__icon" viewBox="0 0 16 16" fill="currentColor" width="16" height="16"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>
         <div class="contrib-item__body">
           <a class="contrib-item__title" href="{{ pr.html_url }}">{{ pr.title }}</a>
-          <span class="contrib-item__repo">{{ pr.repo }}</span>
+          <span class="contrib-item__repo">
+            {{ pr.repo }}
+            {% if pr.stars %}
+            <span class="contrib-item__stars">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+              {{ pr.stars }}
+            </span>
+            {% endif %}
+          </span>
         </div>
       </li>
+      {% else %}
+      <p class="empty-state">No merged contributions to show yet.</p>
       {% endfor %}
     </ul>
+    <div class="pagination" id="contrib-pagination"></div>
   </section>
 </main>
 <script src="{{ get_url(path="lang-colors.js") }}"></script>
@@ -121,6 +149,50 @@
   // Apply the default (active) sort on load so display matches the selected button.
   var active = document.querySelector('.sort-controls button.active');
   if (active) sortCards(active.getAttribute('data-sort'));
+})();
+
+(function() {
+  var PER_PAGE = 10;
+  var list = document.getElementById('contrib-list');
+  var pager = document.getElementById('contrib-pagination');
+  if (!list || !pager) return;
+  var items = Array.from(list.querySelectorAll('.contrib-item'));
+  if (items.length <= PER_PAGE) return;
+
+  var pageCount = Math.ceil(items.length / PER_PAGE);
+  var current = 1;
+
+  function makeButton(label, disabled, onClick) {
+    var btn = document.createElement('button');
+    btn.textContent = label;
+    btn.disabled = disabled;
+    btn.addEventListener('click', onClick);
+    return btn;
+  }
+
+  function render() {
+    items.forEach(function(item, i) {
+      var page = Math.floor(i / PER_PAGE) + 1;
+      item.style.display = (page === current) ? '' : 'none';
+    });
+
+    pager.innerHTML = '';
+    pager.appendChild(makeButton('Prev', current === 1, function() {
+      if (current > 1) { current--; render(); }
+    }));
+    for (var p = 1; p <= pageCount; p++) {
+      (function(page) {
+        var btn = makeButton(String(page), false, function() { current = page; render(); });
+        if (page === current) btn.classList.add('active');
+        pager.appendChild(btn);
+      })(p);
+    }
+    pager.appendChild(makeButton('Next', current === pageCount, function() {
+      if (current < pageCount) { current++; render(); }
+    }));
+  }
+
+  render();
 })();
 </script>
 {% endblock %}

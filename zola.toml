@@ -9,4 +9,14 @@ build_search_index = false
 [extra]
 github_username = "0xcrypto"
 tagline = "This page lists my open source contributions."
+# SHA-256 of your (trimmed, lowercased) email — used for the Gravatar avatar.
 gravatar_hash = "839e873cfec482041c52272615ef3bfc01cdc8bb5a9be701d907af84e855b4df"
+
+# Social links shown in the header. Remove any you don't want.
+[extra.social]
+blog = "https://eval.blog"
+github = "https://github.com/0xcrypto"
+twitter = "https://x.com/0xcrypto"
+linkedin = "https://www.linkedin.com/in/0xcrypto"
+youtube = "https://www.youtube.com/@0xcrypto"
+instagram = "https://www.instagram.com/ivxenog"

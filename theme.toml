@@ -1,0 +1,25 @@
+name = "github-portfolio"
+description = "A single-page Zola theme that showcases your GitHub personal projects as cards and your merged open-source contributions as a list, with a Gravatar header and social links."
+license = "MIT"
+homepage = "https://github.com/0xcrypto/github-portfolio"
+min_version = "0.19.0"
+demo = "https://0xcrypto.github.io"
+
+[author]
+name = "Vikrant Singh Chauhan"
+homepage = "https://github.com/0xcrypto"
+
+# Options used by the theme, shown as an example. Copy the relevant parts into
+# your own config.toml `[extra]` section (see README).
+[extra]
+github_username = "your-username"
+tagline = "This page lists my open source contributions."
+gravatar_hash = ""
+
+[extra.social]
+blog = ""
+github = ""
+twitter = ""
+linkedin = ""
+youtube = ""
+instagram = ""

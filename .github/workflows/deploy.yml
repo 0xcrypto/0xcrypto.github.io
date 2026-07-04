@@ -38,14 +38,30 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           owner_lc="$(echo "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
+
+          # 1. Collect merged PRs authored by the user in repos they don't own.
           gh api -X GET search/issues --paginate \
             -f q="type:pr is:merged author:${GITHUB_REPOSITORY_OWNER}" \
             --jq ".items[]
                   | select(.pull_request != null)
                   | select((.repository_url | ascii_downcase | test(\"/repos/${owner_lc}/\")) | not)
                   | {title, html_url, repo: (.repository_url | sub(\"https://api.github.com/repos/\"; \"\")), merged_at: .pull_request.merged_at}" \
-            | jq -s 'sort_by(.merged_at) | reverse' > static/contributions.json
-          echo "Fetched $(jq length static/contributions.json) contributions"
+            | jq -s '.' > /tmp/prs.json
+
+          # 2. Look up each unique repo's star count.
+          stars_json="{}"
+          for repo in $(jq -r '.[].repo' /tmp/prs.json | sort -u); do
+            count="$(gh api "/repos/${repo}" --jq '.stargazers_count' 2>/dev/null || echo 0)"
+            stars_json="$(jq -n --argjson m "$stars_json" --arg r "$repo" --argjson c "${count:-0}" '$m + {($r): $c}')"
+          done
+
+          # 3. Keep only contributions to repos with more than 5 stars, newest first.
+          jq --argjson stars "$stars_json" '
+            map(. + {stars: ($stars[.repo] // 0)})
+            | map(select(.stars > 5))
+            | sort_by(.merged_at) | reverse
+          ' /tmp/prs.json > static/contributions.json
+          echo "Fetched $(jq length static/contributions.json) contributions (repos with >5 stars)"
 
       - name: Install Zola
         uses: taiki-e/install-action@v2
