@@ -1,5 +1,7 @@
 # github-portfolio
 
+![Cover](.github/cover.png)
+
 A single-page [Zola](https://www.getzola.org) theme for showcasing your open
 source work. It renders:
 
