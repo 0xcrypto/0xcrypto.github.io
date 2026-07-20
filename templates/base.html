@@ -4,13 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
 </head>
 <body>
   {% block content %}{% endblock %}
   <footer>
-    Powered by <a href="https://www.getzola.org" style="color: var(--accent);">Zola</a> &amp;
-    <a href="https://github.com/0xcrypto/github-portfolio" style="color: var(--accent);">github-portfolio</a>
+    Powered by <a href="https://github.com/0xcrypto/0xcrypto.github.io" style="color: var(--accent);">github-portfolio</a>
+    theme by <a href="https://eval.blog" style="color: var(--accent);">@0xcrypto</a> for
+    <a href="https://www.getzola.org" style="color: var(--accent);">Zola</a>.
   </footer>
 </body>
 </html>

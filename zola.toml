@@ -1,5 +1,5 @@
-base_url = "https://0xcrypto.github.io"
-title = "0xcrypto"
+base_url = "https://o.eval.blog"
+title = "o.eval.blog"
 description = "Open source projects by 0xcrypto"
 compile_sass = true
 build_search_index = false
@@ -12,7 +12,39 @@ tagline = "This page lists my open source contributions."
 # SHA-256 of your (trimmed, lowercased) email — used for the Gravatar avatar.
 gravatar_hash = "839e873cfec482041c52272615ef3bfc01cdc8bb5a9be701d907af84e855b4df"
 
-# Social links shown in the header. Remove any you don't want.
+# Top navigation — mirrors the eval.blog header.
+nav = [
+  { name = "blog", url = "https://eval.blog/blog/" },
+  { name = "research", url = "https://eval.blog/research/", children = [
+    { name = "iOS", url = "https://eval.blog/research/?tagged=ios" },
+    { name = "Android", url = "https://eval.blog/research/?tagged=android" },
+    { name = "Linux", url = "https://eval.blog/research/?tagged=linux" },
+    { name = "Windows", url = "https://eval.blog/research/?tagged=windows" },
+    { name = "macOS", url = "https://eval.blog/research/?tagged=macos" },
+    { name = "Chromium", url = "https://eval.blog/research/?tagged=chromium" },
+    { name = "AI", url = "https://eval.blog/research/?tagged=ai" },
+  ] },
+  { name = "projects", url = "https://o.eval.blog/", children = [
+    { name = "CVEs", url = "https://eval.blog/cves/" },
+    { name = "Dissecting Apple", url = "https://xnu.ivx.run" },
+  ] },
+  { name = "tutorials", url = "https://eval.blog/tutorials/", children = [
+    { name = "AI & ML", url = "https://eval.blog/tutorials/?tagged=ai" },
+    { name = "Security", url = "https://eval.blog/tutorials/?tagged=security" },
+  ] },
+  { name = "books", url = "https://o.eval.blog/books" },
+  { name = "follow me", url = "#", children = [
+    { name = "YouTube", url = "https://www.youtube.com/@0xcrypto" },
+    { name = "Mastodon", url = "https://infosec.exchange/@0xcrypto" },
+    { name = "X (Twitter)", url = "https://x.com/0xcrypto" },
+    { name = "Keybase", url = "https://keybase.io/0xcrypto" },
+    { name = "GitHub", url = "https://github.com/0xcrypto" },
+    { name = "LinkedIn", url = "https://linkedin.com/in/0xcrypto" },
+    { name = "RSS Feed", url = "https://eval.blog/rss.xml" },
+  ] },
+]
+
+# Social links (used by the "follow me" dropdown source above; kept for reference).
 [extra.social]
 blog = "https://eval.blog"
 github = "https://github.com/0xcrypto"

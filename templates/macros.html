@@ -1,0 +1,24 @@
+{% macro nav_menu(items) %}
+<div class="menu-items">
+  {% for item in items %}
+    {% if item.children is defined %}
+    <div class="menu-item-has-children">
+      <a href="{{ item.url | safe }}">
+        {{ item.name }}
+        <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+      <div class="dropdown-menu">
+        {% for child in item.children %}
+        <a href="{{ child.url | safe }}">{{ child.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% else %}
+    <a href="{{ item.url | safe }}">{{ item.name }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endmacro nav_menu %}

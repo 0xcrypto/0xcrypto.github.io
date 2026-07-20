@@ -1,50 +1,70 @@
 {% extends "base.html" %}
+{% import "macros.html" as macros %}
 
 {% block title %}{{ config.title }} — {{ config.description }}{% endblock %}
 
 {% block content %}
-<header>
-  <img class="avatar"
-       src="https://www.gravatar.com/avatar/{{ config.extra.gravatar_hash }}?s=200&d=identicon"
-       alt="{{ config.extra.github_username }}" width="120" height="120">
-  <h1>{{ config.extra.github_username }}</h1>
-  <p>{{ config.extra.tagline }}</p>
-  {% if config.extra.social %}
-  {% set social = config.extra.social %}
-  <nav class="socials">
-    {% if social.blog %}
-    <a href="{{ social.blog }}" title="Blog" aria-label="Blog">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M4 3h13a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm2 4v2h9V7H6zm0 4v2h9v-2H6zm0 4v2h6v-2H6z"/></svg>
-    </a>
-    {% endif %}
-    {% if social.github %}
-    <a href="{{ social.github }}" title="GitHub" aria-label="GitHub">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.64-5.49 5.94.43.37.82 1.1.82 2.22 0 1.61-.02 2.9-.02 3.29 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
-    </a>
-    {% endif %}
-    {% if social.twitter %}
-    <a href="{{ social.twitter }}" title="X" aria-label="X (Twitter)">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.63 7.58H.49l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3L17.61 20.65z"/></svg>
-    </a>
-    {% endif %}
-    {% if social.linkedin %}
-    <a href="{{ social.linkedin }}" title="LinkedIn" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-    </a>
-    {% endif %}
-    {% if social.youtube %}
-    <a href="{{ social.youtube }}" title="YouTube" aria-label="YouTube">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
-    </a>
-    {% endif %}
-    {% if social.instagram %}
-    <a href="{{ social.instagram }}" title="Instagram" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
-    </a>
-    {% endif %}
-  </nav>
-  {% endif %}
+<header class="site-header">
+  <div class="container">
+    <nav class="site-nav">
+      <a href="{{ config.base_url }}" class="nav-brand">
+        <span class="logo"><span>💀</span> {{ config.title }}</span>
+      </a>
+
+      <!-- Desktop menu -->
+      <div class="desktop-nav">
+        {{ macros::nav_menu(items=config.extra.nav) }}
+      </div>
+
+      <!-- Mobile trigger -->
+      <button class="mobile-toggle" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Mobile drawer overlay -->
+      <div class="nav-overlay"></div>
+
+      <!-- Mobile drawer -->
+      <div class="mobile-drawer">
+        <div class="drawer-header">
+          <a href="{{ config.base_url }}" class="nav-brand">
+            <span class="logo"><span>💀</span> {{ config.title }}</span>
+          </a>
+          <button class="drawer-close" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        {{ macros::nav_menu(items=config.extra.nav) }}
+      </div>
+    </nav>
+  </div>
 </header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-profile">
+        <img class="avatar"
+             src="https://www.gravatar.com/avatar/{{ config.extra.gravatar_hash }}?s=200&d=identicon"
+             alt="{{ config.extra.github_username }}" width="72" height="72">
+        <div class="hero-text">
+          <h1>{{ config.extra.github_username }}</h1>
+          <p class="tagline">{{ config.extra.tagline }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <main>
   <section class="section">
     <h2 class="section__title">Personal Projects</h2>
@@ -193,6 +213,56 @@
   }
 
   render();
+})();
+
+// ── Navigation: dropdowns + mobile drawer ──
+(function () {
+  // Dropdown open/close (click on mobile, and for the "#" parent on desktop).
+  document.querySelectorAll('.menu-item-has-children > a').forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      var parent = trigger.parentElement;
+      var isOpen = parent.classList.contains('is-open');
+      if (window.innerWidth <= 768) {
+        if (!isOpen) {
+          e.preventDefault();
+          e.stopPropagation();
+          document.querySelectorAll('.menu-item-has-children').forEach(function (item) {
+            item.classList.remove('is-open');
+          });
+          parent.classList.add('is-open');
+        }
+      } else if (!isOpen && trigger.getAttribute('href') === '#') {
+        e.preventDefault();
+        e.stopPropagation();
+        parent.classList.add('is-open');
+      }
+    });
+  });
+
+  // Mobile drawer.
+  var mobileToggle = document.querySelector('.mobile-toggle');
+  var drawerClose = document.querySelector('.drawer-close');
+  var mobileDrawer = document.querySelector('.mobile-drawer');
+  var navOverlay = document.querySelector('.nav-overlay');
+
+  function toggleDrawer() {
+    if (!mobileDrawer || !navOverlay) return;
+    mobileDrawer.classList.toggle('is-active');
+    navOverlay.classList.toggle('is-active');
+    document.body.style.overflow = mobileDrawer.classList.contains('is-active') ? 'hidden' : '';
+  }
+
+  if (mobileToggle) mobileToggle.addEventListener('click', function (e) { e.stopPropagation(); toggleDrawer(); });
+  if (drawerClose) drawerClose.addEventListener('click', toggleDrawer);
+  if (navOverlay) navOverlay.addEventListener('click', toggleDrawer);
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.menu-item-has-children')) {
+      document.querySelectorAll('.menu-item-has-children').forEach(function (item) {
+        item.classList.remove('is-open');
+      });
+    }
+  });
 })();
 </script>
 {% endblock %}

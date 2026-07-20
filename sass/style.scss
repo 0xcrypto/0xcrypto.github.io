@@ -1,11 +1,19 @@
-$bg: #0d1117;
-$surface: #161b22;
-$border: #30363d;
-$text: #e6edf3;
-$text-muted: #8b949e;
-$accent: #58a6ff;
-$green: #3fb950;
-$purple: #bc8cff;
+// eval.blog palette — dark navy surfaces with a slate-blue accent
+$bg: #131720;         // --background
+$surface: #1c212b;    // --card
+$popover: #232834;    // --popover (dropdown menus)
+$hover: #323845;      // --accent surface (hover / active rows)
+$border: #2d333e;     // --border
+$text: #fafafa;       // --foreground
+$text-muted: #9ea5b2; // --muted-foreground
+$accent: #4f5b83;     // --primary
+$on-accent: #fafafa;  // text on accent backgrounds
+$green: #4ade80;      // success accent (kept for future use)
+$purple: $accent;     // folded into the accent for a cohesive look
+
+:root {
+  --accent: #{$accent}; // exposed for inline template refs (e.g. footer)
+}
 
 * {
   margin: 0;
@@ -14,53 +22,345 @@ $purple: #bc8cff;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   background: $bg;
   color: $text;
   line-height: 1.6;
   min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  padding: 3rem 1rem 2rem;
-  border-bottom: 1px solid $border;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
-  .avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 1px solid $border;
-    margin-bottom: 1rem;
-  }
+/* Top navigation bar (eval.blog style) */
+.site-header {
+  padding: 1.5rem 0;
+}
 
-  h1 {
-    font-size: 2rem;
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-brand {
+  text-decoration: none;
+
+  .logo {
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    color: $text-muted;
-    font-size: 1.1rem;
-  }
-
-  .socials {
+    letter-spacing: -0.025em;
+    color: $text;
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.25rem;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
 
-    a {
-      color: $text-muted;
-      display: inline-flex;
-      transition: color 0.2s, transform 0.2s;
+/* Desktop menu (eval.blog style) */
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
 
-      &:hover {
-        color: $accent;
-        transform: translateY(-2px);
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.mobile-drawer,
+.nav-overlay {
+  display: none;
+}
+
+.mobile-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: $text;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.menu-items {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  a,
+  .menu-item-has-children > a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-muted;
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+      color: $text;
+    }
+  }
+}
+
+.menu-item-has-children {
+  position: relative;
+
+  > a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &.is-open {
+    > a {
+      color: $text;
+    }
+
+    .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .chevron {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media (min-width: 768px) {
+    &:hover {
+      .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .chevron {
+        transform: rotate(180deg);
       }
     }
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: $popover;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-width: 180px;
+  margin-top: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+  a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: $text-muted;
+    text-decoration: none;
+    border-radius: 6px;
+
+    &:hover {
+      background: $hover;
+      color: $text;
+    }
+  }
+}
+
+.chevron {
+  opacity: 0.5;
+  transition: transform 0.2s;
+}
+
+/* Mobile drawer */
+@media (max-width: 768px) {
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background: $bg;
+    border-left: 1px solid $border;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 300;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+
+    &.is-active {
+      display: flex;
+      right: 0;
+    }
+  }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 210;
+    backdrop-filter: blur(4px);
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  .drawer-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    border-bottom: 1px solid $border;
+  }
+
+  .drawer-close {
+    background: none;
+    border: none;
+    color: $text;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-items {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 0;
+    padding: 0.5rem 0;
+    flex: 1;
+    overflow-y: auto;
+
+    > a,
+    .menu-item-has-children > a {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0.75rem 1.25rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: $text;
+      border-radius: 0;
+    }
+  }
+
+  .menu-item-has-children {
+    width: 100%;
+
+    &.is-open .dropdown-menu {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    background: transparent;
+    border: none;
+    border-left: 2px solid $border;
+    padding: 0.25rem 0 0.5rem 0;
+    margin: 0 1.25rem 0.5rem 1.25rem;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+
+    a {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: $text-muted;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Profile hero (eval.blog style — left aligned) */
+.hero {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid $border;
+
+  @media (min-width: 768px) {
+    padding: 3.5rem 0;
+  }
+}
+
+.hero-inner {
+  max-width: 42rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid $border;
+    background: $surface;
+    flex-shrink: 0;
+  }
+}
+
+.hero-text {
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+
+    @media (min-width: 768px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  .tagline {
+    color: $text-muted;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
   }
 }
 
@@ -112,7 +412,7 @@ main {
     &.active {
       background: $accent;
       border-color: $accent;
-      color: $bg;
+      color: $on-accent;
       font-weight: 600;
     }
   }
@@ -251,7 +551,7 @@ main {
   &__repo {
     color: $text-muted;
     font-size: 0.8rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -295,7 +595,7 @@ main {
     &.active {
       background: $accent;
       border-color: $accent;
-      color: $bg;
+      color: $on-accent;
       font-weight: 600;
     }
 
