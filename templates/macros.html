@@ -1,9 +1,11 @@
 {% macro nav_menu(items) %}
+{#- Like eval.blog's menu: links off eval.blog and its subdomains (the socials) get nofollow, so
+    the site-wide nav doesn't read as outbound links on every page. #}
 <div class="menu-items">
   {% for item in items %}
     {% if item.children is defined %}
     <div class="menu-item-has-children">
-      <a href="{{ item.url | safe }}">
+      <a href="{{ item.url | safe }}"{% if item.url is starting_with("http") and "eval.blog" not in item.url %} rel="nofollow"{% endif %}>
         {{ item.name }}
         <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -12,12 +14,12 @@
       </a>
       <div class="dropdown-menu">
         {% for child in item.children %}
-        <a href="{{ child.url | safe }}">{{ child.name }}</a>
+        <a href="{{ child.url | safe }}"{% if child.url is starting_with("http") and "eval.blog" not in child.url %} rel="nofollow"{% endif %}>{{ child.name }}</a>
         {% endfor %}
       </div>
     </div>
     {% else %}
-    <a href="{{ item.url | safe }}">{{ item.name }}</a>
+    <a href="{{ item.url | safe }}"{% if item.url is starting_with("http") and "eval.blog" not in item.url %} rel="nofollow"{% endif %}>{{ item.name }}</a>
     {% endif %}
   {% endfor %}
 </div>

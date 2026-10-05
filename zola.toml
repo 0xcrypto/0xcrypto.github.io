@@ -7,12 +7,14 @@ build_search_index = false
 [markdown]
 
 [extra]
+# Meta description for search results and link previews (aim for 110–160 characters).
+meta_description = "Open source projects and contributions by Vikrant Singh Chauhan (0xcrypto): the tools he maintains and his merged pull requests to projects across GitHub."
 github_username = "0xcrypto"
 tagline = "This page lists my open source contributions."
 # SHA-256 of your (trimmed, lowercased) email — used for the Gravatar avatar.
 gravatar_hash = "839e873cfec482041c52272615ef3bfc01cdc8bb5a9be701d907af84e855b4df"
 
-# Top navigation — mirrors the eval.blog header.
+# Top navigation: the same menu as eval.blog (hugo.toml [menus]); keep the two in step.
 nav = [
   { name = "blog", url = "https://eval.blog/blog/" },
   { name = "research", url = "https://eval.blog/research/", children = [
@@ -23,17 +25,12 @@ nav = [
     { name = "macOS", url = "https://eval.blog/research/?tagged=macos" },
     { name = "Chromium", url = "https://eval.blog/research/?tagged=chromium" },
     { name = "AI", url = "https://eval.blog/research/?tagged=ai" },
-  ] },
-  { name = "projects", url = "https://o.eval.blog/", children = [
     { name = "CVEs", url = "https://eval.blog/cves/" },
-    { name = "Dissecting Apple", url = "https://xnu.ivx.run" },
   ] },
-  { name = "tutorials", url = "https://eval.blog/tutorials/", children = [
-    { name = "AI & ML", url = "https://eval.blog/tutorials/?tagged=ai" },
-    { name = "Security", url = "https://eval.blog/tutorials/?tagged=security" },
-  ] },
-  { name = "books", url = "https://o.eval.blog/books" },
-  { name = "follow me", url = "#", children = [
+  # tutorials: add back once eval.blog/tutorials/ is published (it's a draft for now).
+  { name = "books", url = "https://eval.blog/books/" },
+  { name = "about me", url = "#", children = [
+    { name = "Open Source Contributions", url = "https://o.eval.blog/" },
     { name = "YouTube", url = "https://www.youtube.com/@0xcrypto" },
     { name = "Mastodon", url = "https://infosec.exchange/@0xcrypto" },
     { name = "X (Twitter)", url = "https://x.com/0xcrypto" },

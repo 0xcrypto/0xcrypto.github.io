@@ -7,7 +7,7 @@
 <header class="site-header">
   <div class="container">
     <nav class="site-nav">
-      <a href="{{ config.base_url }}" class="nav-brand">
+      <a href="{{ config.base_url | safe }}/" class="nav-brand">
         <span class="logo"><span>💀</span> {{ config.title }}</span>
       </a>
 
@@ -32,7 +32,7 @@
       <!-- Mobile drawer -->
       <div class="mobile-drawer">
         <div class="drawer-header">
-          <a href="{{ config.base_url }}" class="nav-brand">
+          <a href="{{ config.base_url | safe }}/" class="nav-brand">
             <span class="logo"><span>💀</span> {{ config.title }}</span>
           </a>
           <button class="drawer-close" aria-label="Close Menu">

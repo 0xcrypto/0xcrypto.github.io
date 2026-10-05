@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  {%- set description = config.extra.meta_description | default(value=config.description) %}
+  {%- set canonical = current_url | default(value=config.base_url ~ "/") %}
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ canonical | safe }}">
+  <meta name="author" content="Vikrant Singh Chauhan">
+  <meta name="theme-color" content="#20232e">
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ config.title }} — {{ config.description }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical | safe }}">
+  <meta property="og:image" content="https://www.gravatar.com/avatar/{{ config.extra.gravatar_hash }}?s=400&d=identicon">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@0xcrypto">
+  <meta name="twitter:title" content="{{ config.title }} — {{ config.description }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💀</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
@@ -14,7 +31,7 @@
   {% block content %}{% endblock %}
   <footer>
     Powered by <a href="https://github.com/0xcrypto/0xcrypto.github.io" style="color: var(--accent);">github-portfolio</a>
-    theme by <a href="https://eval.blog" style="color: var(--accent);">@0xcrypto</a> for
+    theme by <a href="https://eval.blog/" style="color: var(--accent);">@0xcrypto</a> for
     <a href="https://www.getzola.org" style="color: var(--accent);">Zola</a>.
   </footer>
 </body>
