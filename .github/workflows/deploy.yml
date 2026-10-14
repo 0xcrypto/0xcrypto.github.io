@@ -29,7 +29,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api "/users/${GITHUB_REPOSITORY_OWNER}/repos?per_page=100&type=public" --paginate \
-            --jq '.[] | select(.fork == false and .stargazers_count > 0) | {name, description, html_url, stargazers_count, forks_count, language, updated_at}' \
+            --jq '.[] | select(.fork == false and .stargazers_count > 0) | {name, description, html_url, stargazers_count, forks_count, language, topics, updated_at}' \
             | jq -s '.' > static/repos.json
           echo "Fetched $(jq length static/repos.json) personal projects"
 

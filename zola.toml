@@ -16,21 +16,31 @@ gravatar_hash = "839e873cfec482041c52272615ef3bfc01cdc8bb5a9be701d907af84e855b4d
 
 # Top navigation: the same menu as eval.blog (hugo.toml [menus]); keep the two in step.
 nav = [
-  { name = "blog", url = "https://eval.blog/blog/" },
-  { name = "research", url = "https://eval.blog/research/", children = [
-    { name = "iOS", url = "https://eval.blog/research/?tagged=ios" },
-    { name = "Android", url = "https://eval.blog/research/?tagged=android" },
-    { name = "Linux", url = "https://eval.blog/research/?tagged=linux" },
-    { name = "Windows", url = "https://eval.blog/research/?tagged=windows" },
-    { name = "macOS", url = "https://eval.blog/research/?tagged=macos" },
-    { name = "Chromium", url = "https://eval.blog/research/?tagged=chromium" },
-    { name = "AI", url = "https://eval.blog/research/?tagged=ai" },
-    { name = "CVEs", url = "https://eval.blog/cves/" },
+  { name = "fuzzing", url = "https://eval.blog/topics/?tagged=fuzzing", children = [
+    { name = "iOS", url = "https://eval.blog/topics/?tagged=fuzzing,ios" },
+    { name = "macOS", url = "https://eval.blog/topics/?tagged=fuzzing,macos" },
+    { name = "Windows", url = "https://eval.blog/topics/?tagged=fuzzing,windows" },
+    { name = "Android", url = "https://eval.blog/topics/?tagged=fuzzing,android" },
+    { name = "Linux", url = "https://eval.blog/topics/?tagged=fuzzing,linux" },
   ] },
-  # tutorials: add back once eval.blog/tutorials/ is published (it's a draft for now).
-  { name = "books", url = "https://eval.blog/books/" },
-  { name = "about me", url = "#", children = [
-    { name = "Open Source Contributions", url = "https://o.eval.blog/" },
+  { name = "re & binexp", url = "https://eval.blog/topics/?tagged=reverse-engineering|binary-exploitation", children = [
+    { name = "Ghidra", url = "https://eval.blog/topics/?tagged=ghidra" },
+    { name = "radare2", url = "https://eval.blog/topics/?tagged=radare2" },
+  ] },
+  { name = "virt & emu", url = "https://eval.blog/topics/?tagged=virtualization|emulation", children = [
+    { name = "QEMU", url = "https://eval.blog/topics/?tagged=qemu" },
+    { name = "Virtualization Framework", url = "https://eval.blog/topics/?tagged=virtualization-framework" },
+  ] },
+  { name = "ai & ml", url = "https://eval.blog/topics/?tagged=ai|ml", children = [
+    { name = "SLM", url = "https://eval.blog/topics/?tagged=slm" },
+    { name = "LLM", url = "https://eval.blog/topics/?tagged=llm" },
+    { name = "Prompt Engineering", url = "https://eval.blog/topics/?tagged=prompt-engineering" },
+    { name = "Harness Engineering", url = "https://eval.blog/topics/?tagged=harness-engineering" },
+  ] },
+  { name = "ctf writeups", url = "https://eval.blog/topics/?tagged=ctf" },
+  { name = "about", url = "#", children = [
+    { name = "Blog", url = "https://eval.blog/blog/" },
+    { name = "Open Source", url = "https://o.eval.blog/" },
     { name = "YouTube", url = "https://www.youtube.com/@0xcrypto" },
     { name = "Mastodon", url = "https://infosec.exchange/@0xcrypto" },
     { name = "X (Twitter)", url = "https://x.com/0xcrypto" },
