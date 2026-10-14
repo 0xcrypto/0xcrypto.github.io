@@ -37,9 +37,15 @@ nav = [
     { name = "Prompt Engineering", url = "https://eval.blog/topics/?tagged=prompt-engineering" },
     { name = "Harness Engineering", url = "https://eval.blog/topics/?tagged=harness-engineering" },
   ] },
-  { name = "ctf writeups", url = "https://eval.blog/topics/?tagged=ctf" },
+  { name = "writeups", url = "https://eval.blog/topics/?tagged=disclosure|ctf|hackathon|cves", children = [
+    { name = "Disclosures", url = "https://eval.blog/topics/?tagged=disclosure" },
+    { name = "CTF Writeups", url = "https://eval.blog/topics/?tagged=ctf" },
+    { name = "Hackathons", url = "https://eval.blog/topics/?tagged=hackathon" },
+    { name = "CVEs", url = "https://eval.blog/cves/" },
+  ] },
   { name = "about", url = "#", children = [
     { name = "Blog", url = "https://eval.blog/blog/" },
+    { name = "Projects", url = "https://o.eval.blog/#projects" },
     { name = "Open Source", url = "https://o.eval.blog/" },
     { name = "YouTube", url = "https://www.youtube.com/@0xcrypto" },
     { name = "Mastodon", url = "https://infosec.exchange/@0xcrypto" },
