@@ -180,6 +180,8 @@ body {
     color: $text-muted;
     text-decoration: none;
     border-radius: 6px;
+    // Grow the menu to fit long labels instead of wrapping them.
+    white-space: nowrap;
 
     &:hover {
       background: $hover;
